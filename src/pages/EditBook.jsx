@@ -19,7 +19,7 @@ const EditBook = () => {
   
   useEffect(() => {
     setloading(true);
-    axios.get(`https://bookstore-production-2104.up.railway.app/books/edit${id}`).then((res) => {
+    axios.get(`https://bookstore-production-2104.up.railway.app/books/edit/${id}`).then((res) => {
       setAuthor(res.data.author);
       setpublishYear(res.data.publishYear);
       setTitle(res.data.title);
