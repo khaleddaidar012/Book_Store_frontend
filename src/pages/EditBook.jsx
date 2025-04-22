@@ -19,7 +19,7 @@ const EditBook = () => {
   
   useEffect(() => {
     setloading(true);
-    axios.get(`https://bookstore-production-2104.up.railway.app/books/edit/${id}`).then((res) => {
+    axios.get(`https://bookstore-production-2104.up.railway.app/books/${id}`).then((res) => {
       setAuthor(res.data.author);
       setpublishYear(res.data.publishYear);
       setTitle(res.data.title);
@@ -40,7 +40,7 @@ const EditBook = () => {
                 }
       setloading(true);
       navigate('/')
-      axios.put(`http://localhost:5555/books/${id}` , data).then(() => {
+      axios.put(`https://bookstore-production-2104.up.railway.app/books/${id}` , data).then(() => {
         setloading(false);
         navigate('/');
       }).catch((err) => {
