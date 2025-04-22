@@ -12,7 +12,7 @@ const EditBook = () => {
   const [title,setTitle] = useState('');
   const [author,setAuthor] = useState('');
   const [publishYear,setpublishYear] = useState('');
-  const [loading,setloading] = useState('');
+  const [loading,setloading] = useState(false);
   const navigate = useNavigate();
   const {id} = useParams();
   const {enqueueSnackbar} = useSnackbar();
