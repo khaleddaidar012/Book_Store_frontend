@@ -11,7 +11,7 @@ const ShowBook = () => {
   const [loading,setloading]  = useState(false);
   useEffect(() =>{
     setloading(true);
-    axios.put(`https://bookstore-production-2104.up.railway.app/books/${id}`).then((res) => {
+    axios.get(`https://bookstore-production-2104.up.railway.app/books/${id}`).then((res) => {
       setBook(res.data.data);
       setloading(false)
     })
