@@ -24,7 +24,6 @@ const EditBook = () => {
       setpublishYear(res.data.publishYear);
       setTitle(res.data.title);
       setloading(false);
-      enqueueSnackbar('Book Edited successfully', { variant: 'success' });
     }).catch((err) => {
       console.log(err)
       setloading(false);
@@ -32,22 +31,26 @@ const EditBook = () => {
     })
   },[])
 
-  const handleEditBook =() =>{
-    const data ={
+  const handleEditBook = () => {
+    const data = {
       title,
       author,
       publishYear
-                }
-      setloading(true);
-      navigate('/')
-      axios.put(`https://bookstore-production-2104.up.railway.app/books/${id}` , data).then(() => {
+    };
+  
+    setloading(true);
+  
+    axios.put(`https://bookstore-production-2104.up.railway.app/books/${id}`, data)
+      .then(() => {
         setloading(false);
-        navigate('/');
-      }).catch((err) => {
-        setloading(false);
-        alert("an Error happend Place Check the console")
-        console.log(err)
+        enqueueSnackbar('Book Updated Successfully', { variant: 'success' }); // إضافة Snackbar
+        navigate('/'); // هنا بعد التعديل
       })
+      .catch((err) => {
+        setloading(false);
+        alert("An error happened. Please check the console.");
+        console.log(err);
+      });
   };
   return (
     
