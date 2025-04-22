@@ -24,7 +24,7 @@ const CreateBook = () => {
                 }
       setloading(true);
       navigate('/')
-      axios.post('http://localhost:5555/books' , data).then(() => {
+      axios.post('https://bookstore-production-2104.up.railway.app/books' , data).then(() => {
         setloading(false);
         enqueueSnackbar('Book Created Successfully' , {variant: 'success'});
         navigate('/');

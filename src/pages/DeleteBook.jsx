@@ -16,7 +16,7 @@ const DeleteBook = () => {
   console.log("ID:", id);
   const handleDeleteBook = () =>{
     setLoading(true);
-    axios.delete(`http://localhost:5555/books/${id}`).then(() => {
+    axios.delete(`https://bookstore-production-2104.up.railway.app/books/${id}`).then(() => {
       setLoading(false);
       enqueueSnackbar('Book deleted successfully', { variant: 'success' });
       navigate('/');
